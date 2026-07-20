@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        🎓 Student Management System
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+
+        {% if "user" in session %}
+            <span>Welcome, {{ session["user"] }}</span>
+            <a href="/logout">Logout</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h1>About Us</h1>
+
+    <div class="student-card">
+        <h2>Student Management System</h2>
+
+        <p>
+            This project is a web-based Student Management System developed using
+            Python, Flask, SQLite, HTML, and CSS.
+        </p>
+
+        <p>
+            The system allows users to register, log in securely, add students,
+            search, edit, delete, and manage student records easily.
+        </p>
+
+        <p>
+            This project was created for educational purposes to demonstrate
+            CRUD operations, authentication, session management, and database
+            integration using Flask.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
