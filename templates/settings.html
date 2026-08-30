@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+
+{% block title %}
+Settings
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <h1 class="display-4 fw-bold">
+            <i class="fas fa-gear"></i>
+            Settings
+        </h1>
+
+        <p class="lead text-light">
+            Manage your account and personalize your experience.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- ================= PROFILE ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    👤
+                </div>
+
+                <h4 class="fw-bold">
+                    Profile
+                </h4>
+
+                <p class="text-muted">
+                    Update your profile picture.
+                </p>
+
+                <img
+                    id="avatarPreview"
+                    src="{{ url_for('static', filename='uploads/' + session.get('avatar','default-avatar.png')) }}"
+                    class="rounded-circle shadow mb-4 border border-3 border-light"
+                    width="140"
+                    height="140">
+
+                <form
+                    method="POST"
+                    action="/change_avatar"
+                    enctype="multipart/form-data">
+
+                    <input
+                        type="file"
+                        id="avatar"
+                        name="avatar"
+                        class="form-control mb-3"
+                        accept="image/*"
+                        onchange="previewAvatar(event)">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary rounded-pill w-100">
+
+                        <i class="fas fa-upload"></i>
+
+                        Upload Avatar
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    📧
+                </div>
+
+                <h4 class="fw-bold">
+                    Email
+                </h4>
+
+                <p class="text-muted">
+                    Change your email address.
+                </p>
+
+                <a href="/change_email"
+                   class="btn btn-success rounded-pill w-100">
+
+                    <i class="fas fa-envelope"></i>
+
+                    Change Email
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- ================= PASSWORD ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    🔒
+                </div>
+
+                <h4 class="fw-bold">
+                    Password
+                </h4>
+
+                <p class="text-muted">
+                    Keep your account secure.
+                </p>
+
+                <a href="/change_password"
+                   class="btn btn-warning rounded-pill w-100">
+
+                    <i class="fas fa-key"></i>
+
+                    Change Password
+
+                </a>
+
+            </div>
+
+        </div>
+        <!-- ================= DARK MODE ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    🌙
+                </div>
+
+                <h4 class="fw-bold">
+                    Dark Mode
+                </h4>
+
+                <p class="text-muted">
+                    Switch between Light and Dark theme.
+                </p>
+
+                <div class="form-check form-switch d-flex justify-content-center">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="darkModeSwitch">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= LANGUAGE ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    🌍
+                </div>
+
+                <h4 class="fw-bold">
+                    Language
+                </h4>
+
+                <p class="text-muted">
+                    Choose your preferred language.
+                </p>
+
+                <select class="form-select" id="languageSelect">
+
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- ================= NOTIFICATIONS ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    🔔
+                </div>
+
+                <h4 class="fw-bold">
+                    Notifications
+                </h4>
+
+                <p class="text-muted">
+                    Enable or disable notifications.
+                </p>
+
+                <div class="form-check form-switch d-flex justify-content-center">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="notificationSwitch"
+                        checked>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= ANIMATIONS ================= -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4 h-100 text-center p-4">
+
+                <div class="display-4 mb-3">
+                    ✨
+                </div>
+
+                <h4 class="fw-bold">
+                    Animations
+                </h4>
+
+                <p class="text-muted">
+                    Enable smooth animations.
+                </p>
+
+                <div class="form-check form-switch d-flex justify-content-center">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="animationSwitch"
+                        checked>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function previewAvatar(event){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        document.getElementById("avatarPreview").src = e.target.result;
+
+    }
+
+    reader.readAsDataURL(file);
+
+}
+
+</script>
+
+{% endblock %}

@@ -1,130 +1,119 @@
 # 🎓 Student Management System
 
-A web-based Student Management System built with Flask, Python, SQLite, HTML, and CSS.
+A full-stack web-based Student Management System built with Python and Flask.
 
-## 📌 Description
+The application provides a modern interface for managing student records, user accounts, authentication, role-based access control, dashboard analytics, and account settings.
 
-This project allows users to manage student records through a simple web interface.
+## 🚀 Live Demo
 
-Users can:
+Coming soon.
 
-- Register an account
-- Login securely
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+
+- User registration
+- Secure login and logout
+- Password hashing
+- Session-based authentication
+- Admin and Viewer roles
+- Protected administrative actions
+- Administrator registration code
+
+### 👨‍🎓 Student Management
+
 - Add new students
-- View all students
+- View student records
 - Edit student information
 - Delete students
-- Logout securely
+- Upload student photos
+- Search students by name or email
+- Sort students A–Z / Z–A
+- Prevent duplicate student emails
+- Input validation
 
----
+### 📊 Dashboard & Analytics
 
-## 🚀 Technologies Used
+- Total students
+- Total majors
+- Average student age
+- Students by major
+- Interactive charts using Chart.js
+- Responsive dashboard
+
+### 👤 Account Management
+
+- Profile avatar
+- Upload custom avatar
+- Change email address
+- Change password
+- Gender-based default avatars
+
+### ⚙️ User Experience
+
+- Light and Dark Mode
+- English / Arabic interface
+- Notification preferences
+- Smooth animations
+- Page transitions
+- Responsive design
+- Modern glassmorphism-inspired UI
+
+### 📄 Data Management
+
+- Export student records to CSV
+- SQLite database
+
+## 🛠️ Technologies Used
+
+### Backend
 
 - Python
 - Flask
 - SQLite
-- HTML
-- CSS
+- Werkzeug
 
----
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5
+- Font Awesome
+- Chart.js
+
+### Tools
+
+- Git
+- GitHub
 
 ## 📂 Project Structure
 
-```
+```text
 Student-Management-System/
 │
 ├── app.py
 ├── main.py
-├── students.db
+├── requirements.txt
+├── .gitignore
+├── .env.example
+├── README.md
 ├── students.json
 │
 ├── templates/
+│   ├── base.html
 │   ├── index.html
 │   ├── login.html
 │   ├── register.html
 │   ├── edit.html
+│   ├── settings.html
+│   ├── change_email.html
+│   ├── change_password.html
 │   ├── about.html
 │   └── contact.html
 │
-├── static/
-│   └── style.css
-│
-└── README.md
-```
-
----
-
-## ▶️ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/khattabma/Student-Management-System.git
-```
-
-Go to the project folder
-
-```bash
-cd Student-Management-System
-```
-
-Install Flask
-
-```bash
-pip install flask
-```
-
-Run the application
-
-```bash
-python app.py
-```
-
-Open your browser
-
-```
-http://127.0.0.1:5000
-```
-
----
-
-## ✨ Features
-
-✅ User Registration
-
-✅ User Login
-
-✅ Session Authentication
-
-✅ Student Database
-
-✅ Add Students
-
-✅ Edit Students
-
-✅ Delete Students
-
-✅ About Page
-
-✅ Contact Page
-
----
-
-## 📷 Screenshots
-
-Screenshots will be added soon.
-
----
-
-## 👨‍💻 Author
-
-**Khattab Shamsan**
-
-GitHub:
-https://github.com/khattabma
-
----
-
-## 📄 License
-
-This project was created for learning purposes.
+└── static/
+    ├── style.css
+    └── uploads/
+        ├── male-avatar.png
+        └── female-avatar.png

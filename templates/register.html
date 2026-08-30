@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="student-form-card mx-auto" style="max-width:700px;">
+
+        <div class="text-center mb-4">
+
+            <div class="display-2 mb-3">
+                📝
+            </div>
+
+            <h1 class="fw-bold">
+                Create Account
+            </h1>
+
+            <p class="text-light">
+                Create your Student Management account and start managing students securely.
+            </p>
+
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+
+        <div class="flash-message {{ category }}">
+            {{ message }}
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label class="fw-bold mb-2">
+                <i class="fas fa-user"></i> Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label class="fw-bold mt-3 mb-2">
+                <i class="fas fa-envelope"></i> Email Address
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+            <label class="fw-bold mt-3 mb-2">
+    <i class="fas fa-venus-mars"></i> Gender
+</label>
+
+<div class="row mb-3">
+
+    <div class="col-6">
+        <div class="form-check border rounded p-3 text-center bg-light">
+
+            <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="male"
+                value="male"
+                checked
+            >
+
+            <label class="form-check-label fw-bold" for="male">
+                👨 Male
+            </label>
+
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-check border rounded p-3 text-center bg-light">
+
+            <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="female"
+            >
+
+            <label class="form-check-label fw-bold" for="female">
+                👩 Female
+            </label>
+
+        </div>
+    </div>
+<div class="form-group mt-3">
+    <label class="fw-bold mb-2" for="admin_code">
+        Admin Code (Optional)
+    </label>
+
+    <input
+        type="password"
+        id="admin_code"
+        name="admin_code"
+        class="form-control"
+        placeholder="Enter Admin Code if you are an administrator"
+    >
+
+    <small class="text-muted">
+        Leave this field empty to register as a Viewer.
+    </small>
+</div>
+</div>
+            <label class="fw-bold mt-3 mb-2">
+                <i class="fas fa-lock"></i> Password
+            </label>
+
+            <div class="password-container">
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <span class="toggle-password" onclick="togglePassword()">
+                    👁
+                </span>
+
+            </div>
+
+            <button type="submit" class="mt-4">
+                📝 Register
+            </button>
+
+        </form>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-3">
+                Already have an account?
+            </p>
+
+            <a href="{{ url_for('login') }}"
+               class="btn btn-primary w-100">
+                🔑 Back to Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function togglePassword() {
+
+    var password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+
+}
+
+</script>
+
+{% endblock %}

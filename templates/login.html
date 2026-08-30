@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="student-form-card mx-auto" style="max-width:700px;">
+
+        <div class="text-center mb-4">
+
+            <div class="display-2 mb-3">
+                🎓
+            </div>
+
+            <h1 class="fw-bold">
+                Student Management
+            </h1>
+
+            <p class="text-light">
+                Welcome back! Please login to continue.
+            </p>
+
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+
+        <div class="flash-message {{ category }}">
+            {{ message }}
+        </div>
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label class="fw-bold mb-2">
+                 <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label class="fw-bold mt-3 mb-2">
+                  <i class="fas fa-lock"></i> Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit" class="mt-4">
+                🔑 Login
+            </button>
+
+        </form>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-3">
+                Don't have an account?
+            </p>
+
+            <a href="{{ url_for('register') }}"
+               class="btn btn-success w-100">
+                📝 Create Account
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
