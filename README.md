@@ -93,12 +93,10 @@ Coming soon.
 Student-Management-System/
 │
 ├── app.py
-├── main.py
 ├── requirements.txt
 ├── .gitignore
 ├── .env.example
 ├── README.md
-├── students.json
 │
 ├── templates/
 │   ├── base.html
