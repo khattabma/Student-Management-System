@@ -4,9 +4,9 @@ A full-stack web-based Student Management System built with Python and Flask.
 
 The application provides a modern interface for managing student records, user accounts, authentication, role-based access control, dashboard analytics, and account settings.
 
-## 🚀 Live Demo
+## Live Demo
 
-Coming soon.
+[🌐 Live Demo](https://khattabma.pythonanywhere.com)
 
 ## ✨ Features
 
